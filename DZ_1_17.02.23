@@ -38,3 +38,4 @@ if desired_piece % side_a == 0 or desired_piece % side_b == 0:
     print('It can be done')
 else:
     print('That won\'t work')
+

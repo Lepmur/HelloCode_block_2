@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+{% block content %}
+<head>
+    <meta charset="UTF-8"> 
+    <title>Home page</title>
+</head>
+
+<style>
+    html{
+        background-color: aquamarine;
+    }
+</style>
+
+<body>
+
+<!--{% if data %}-->
+<!--    <table>-->
+<!--        <tr><th>FirstName</th><th>LastName</th><th>BirthDate</th></tr>-->
+<!--        {% for row in data %}-->
+<!--            <tr><td>{{ row[0] }}</td><td>{{ row[1] }}</td><td>{{ row[2] }}</td></tr>-->
+<!--        {% endfor %}-->
+<!--    </table>-->
+<!--{% endif %}-->
+
+<h3><a href="/register">Registration</a></h3>
+<h3><a href="/log">Sign in...</a></h3>
+
+
+<!--<a href="/about">About our...</a>-->
+
+{% endblock %}
+
+</body>
+</html>

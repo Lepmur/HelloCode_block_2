@@ -4,47 +4,47 @@
 my_list = [1, 2, 3, 5, 8, 15, 23, 38]
 
 # # решение Comprehension
-# print([(i, i**2) for i in my_list if i % 2 == 0])
+print([(i, i**2) for i in my_list if i % 2 == 0])
 
 # # решение через функции ===============lambda======================
-# def select(f, col):
-#     return [f(x) for x in col]
-# def where(f, col):
-#     return [x for x in col if f(x)]
-# res = select(int, my_list)
-# res = where(lambda x: x % 2 == 0, res)
-# res = list(select(lambda x: (x, x**2), res))
-# print(res)
+def select(f, col):
+    return [f(x) for x in col]
+def where(f, col):
+    return [x for x in col if f(x)]
+res = select(int, my_list)
+res = where(lambda x: x % 2 == 0, res)
+res = list(select(lambda x: (x, x**2), res))
+print(res)
 
 # решение через функции lambda, map, filter
-# res = map(int, my_list)
-# res = filter(lambda x: x % 2 == 0, res)
-# res = list(map(lambda x: (x, x**2), res))
-# print(res)
+res = map(int, my_list)
+res = filter(lambda x: x % 2 == 0, res)
+res = list(map(lambda x: (x, x**2), res))
+print(res)
 
 #////////////////////////==MAP==////////////////////////////////////
 
-# list_1 = [x for x in range(1, 20)]
-# print(list_1)
+list_1 = [x for x in range(1, 20)]
+print(list_1)
 
-# list_1 = list(map(lambda x: x + 10, list_1))
-# print(list_1)
+list_1 = list(map(lambda x: x + 10, list_1))
+print(list_1)
 
 # Задача: С клавиатуры вводится некий набор чисел, в качестве разделителя
 # используется пробел. Этот набор чисел будет считан в качестве строки.
 # Как правильно превратить list строк в list чисел?
 
 # решение Comprehension
-# my_list = [int(i) for i in input('Enter numbers separated by spaces: ').split()]
-# print(my_list, type(my_list[0]))
-# # решение ===Map=== Comprehension
-# my_list_1 = list(map(int, input('Enter numbers separated by spaces: ').split()))
-# print(my_list_1, type(my_list_1[0]))
+my_list = [int(i) for i in input('Enter numbers separated by spaces: ').split()]
+print(my_list, type(my_list[0]))
+# решение ===Map=== Comprehension
+my_list_1 = list(map(int, input('Enter numbers separated by spaces: ').split()))
+print(my_list_1, type(my_list_1[0]))
 
 #////////////////////////==MAP==////////////////////////////////////
 
-# data = [15, 65, 9, 36, 175]
-# print(list(filter(lambda x: x % 10 == 5, data)))
+data = [15, 65, 9, 36, 175]
+print(list(filter(lambda x: x % 10 == 5, data)))
 
 #///////////////////////==ZIP==/////////////////////////////////////
 

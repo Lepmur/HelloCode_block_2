@@ -25,7 +25,7 @@ def show(data: {}):
 def find(data: {}, find_object: str) -> {}:
     result = {}
     for item in data:
-        if find_object.lower() in str(item).lower() or find_object in str(data[item]).lower():
+        if find_object.lower() in str(item).lower() or find_object.lower() in str(data[item]).lower():
             result[item] = data[item]
     return result
 

@@ -42,3 +42,13 @@ def find_contact(search: str) -> list[dict]:
             if search.lower() in field.lower():
                 result.append(contact)
     return result
+
+
+def delete_contact(index: int) -> bool:
+    if 0 < index <= len(phone_book):
+        phone_book.pop(index - 1)
+        return True
+    else:
+        return False
+
+

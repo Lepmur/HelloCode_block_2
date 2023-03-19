@@ -24,8 +24,17 @@ def start():
                     model.change_contact(contact, index)
                     view.show_message(f'Contact {model.get_phone_book()[index - 1].get("name")} changed successfully!')
             case 6:
-                search = view.input_search('Enter information to search: ')
-                result = model.find_contact(search)
-                view.show_contacts(result, 'Contact not found!')
+                if view.show_contacts(pb, 'Phonebook is empty or not open!'):
+                    search = view.input_search('Enter information to search: ')
+                    result = model.find_contact(search)
+                    view.show_contacts(result, 'Contact not found!')
             case 7:
+                if view.show_contacts(pb, 'Phonebook is empty or not open!'):
+                    index = view.input_index('Enter the index of the contact you want to delete: ')
+                    contact_for_delete = pb[index - 1].get("name")
+                    if model.delete_contact(index):
+                        view.show_message(f'Contact {contact_for_delete} deleted successfully!')
+                    else:
+                        view.show_message('Contact not found!')
+            case 8:
                 exit()

@@ -5,4 +5,5 @@ main_menu = '''Main MENU:
     4. Add contact
     5. Edit contact
     6. Find a contact
-    7. Exit'''
+    7. Delete contact
+    8. Exit'''

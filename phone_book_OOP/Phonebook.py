@@ -1,6 +1,27 @@
+import Contact as Cnt
+
 class Phonebook:
     def __init__(self):
         self.contacts = []
+
+    def __str__(self):
+        result = ''
+        i = 0
+        for contact in self.contacts:
+            i += 1
+            result += f'{i}. {contact}\n'
+            return result[:-2]
+
+    def open(self, path: str):
+        with open(path, 'r', encoding='UTF-8') as file:
+            data = file.readlines()
+        for contact in data:
+            self.contacts.append(Cnt.Contact(*contact.strip().split(';')))
+
+    def save(self, path: str):
+        data = '\n'.join(contact.to_str() for contact in self.contacts)
+        with open(path, 'w', encoding='UTF-8') as file:
+            file.write(data)
 
     def add_contact(self, contact):
         self.contacts.append(contact)

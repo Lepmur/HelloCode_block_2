@@ -1,3 +1,6 @@
+import Phonebook
+
+
 class Menu:
     def __init__(self, phonebook):
         self.phonebook = phonebook
@@ -13,26 +16,37 @@ class Menu:
 
     def get_choice(self):
         choice = input("Выберите действие: ")
-        return int(choice)
+        if choice.isdigit() and 0 < int(choice) < 8:
+            return int(choice)
+        else:
+            print("Выберите корректный пункт меню!")
 
     def open_phonebook(self):
-        filename = input("Введите имя файла: ") # открыть файл и сформировать список контактов | self.phonebook.contacts = ...
+        path = input("Введите имя файла: ")
+        Phonebook.Phonebook.open(path)
 
     def save_phonebook(self):
-        filename = input("Введите имя файла: ") # записать список контактов в файл
+        filename = input("Введите имя файла: ")
+        Phonebook.Phonebook.save(filename)
+        print("Файл сохранён успешно!")
 
     def print_contacts(self):
-        for contact in self.phonebook.contacts:
-            print("{} {} {} {}".format(contact.first_name, contact.last_name, contact.phone_number, contact.comment))
+        if Phonebook.Phonebook:
+            print(Phonebook.Phonebook.__str__(Phonebook.Phonebook))
+        else:
+            print("Книга пуста или еще не открыта!")
 
     def search_contacts(self):
-        query = input("Введите запрос: ") # найти контакты по запросу и вывести их на экран
+        query = input("Введите запрос: ")
+        print(Phonebook.Phonebook.search_contacts(query))
 
     def edit_contact(self):
-        query = input("Введите запрос: ") # найти контакты по запросу | предложить выбрать контакт из найденных | запустить диалог редактирования контакта
+        query = input(
+            "Введите запрос: ")  # найти контакты по запросу | предложить выбрать контакт из найденных | запустить диалог редактирования контакта
 
     def delete_contact(self):
-        query = input("Введите запрос: ") # найти контакты по запросу | предложить выбрать контакт из найденных | удалить контакт
+        query = input(
+            "Введите запрос: ")  # найти контакты по запросу | предложить выбрать контакт из найденных | удалить контакт
 
     def run(self):
         while True:

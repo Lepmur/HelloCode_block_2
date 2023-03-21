@@ -6,7 +6,7 @@ class Contact:
         self.comment = comment
 
     def __str__(self):
-        print(f'{self.first_name} {self.last_name:<16} | {self.phone_number:<14} | {self.comment:<20}')
+        return f'{(self.first_name + " " + self.last_name):<20} | {self.phone_number:<14} | {self.comment:<20}'
 
     def to_str(self):
         return f'{self.first_name};{self.last_name};{self.phone_number};{self.comment}'

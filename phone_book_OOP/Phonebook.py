@@ -1,16 +1,18 @@
 import Contact as Cnt
 
+
 class Phonebook:
     def __init__(self):
         self.contacts = []
 
     def __str__(self):
-        result = ''
+        result = '\n'
         for i, contact in enumerate(self.contacts, start=1):
-            result += f'{i}. {contact}\n'
+            result += f'{i:<3}. {contact}\n'
         return result
 
     def open(self, path: str):
+        self.contacts.clear()
         with open(path, 'r', encoding='UTF-8') as file:
             data = file.readlines()
         for contact in data:
@@ -27,11 +29,11 @@ class Phonebook:
     def remove_contact(self, contact):
         self.contacts.remove(contact)
 
-    def search_contacts(self, query):
-        result = []
-        for contact in self.contacts:
-            if query in contact.first_name or query in contact.last_name or query in contact.phone_number or query in contact.comment:
-                result.append(contact)
+    def search_contacts(self, query: str):
+        result = '\n'
+        for i, contact in enumerate(self.contacts, start=1):
+            if query in contact:
+                result += f'{i:<3}. {contact}\n'
         return result
 
     def edit_contact(self, old_contact, new_contact):

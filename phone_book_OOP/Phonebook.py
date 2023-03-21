@@ -6,11 +6,9 @@ class Phonebook:
 
     def __str__(self):
         result = ''
-        i = 0
-        for contact in self.contacts:
-            i += 1
+        for i, contact in enumerate(self.contacts, start=1):
             result += f'{i}. {contact}\n'
-            return result[:-2]
+        return result
 
     def open(self, path: str):
         with open(path, 'r', encoding='UTF-8') as file:

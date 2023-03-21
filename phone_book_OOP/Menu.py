@@ -22,17 +22,15 @@ class Menu:
             print("Выберите корректный пункт меню!")
 
     def open_phonebook(self):
-        path = input("Введите имя файла: ")
-        Phonebook.Phonebook.open(path)
+        self.phonebook.open(input("Введите имя файла: "))
 
     def save_phonebook(self):
-        filename = input("Введите имя файла: ")
-        Phonebook.Phonebook.save(filename)
+        self.phonebook.save(input("Введите имя файла: "))
         print("Файл сохранён успешно!")
 
     def print_contacts(self):
         if Phonebook.Phonebook:
-            print(Phonebook.Phonebook.__str__(Phonebook.Phonebook))
+            print(self.phonebook.__str__())
         else:
             print("Книга пуста или еще не открыта!")
 
